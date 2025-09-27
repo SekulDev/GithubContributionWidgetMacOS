@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct GithubContributionWidgetMacOSApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

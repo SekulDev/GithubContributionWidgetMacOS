@@ -6,14 +6,65 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		00A91BF92E8816DB00A5D4D4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A91BF82E8816DB00A5D4D4 /* WidgetKit.framework */; };
+		00A91BFB2E8816DB00A5D4D4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A91BFA2E8816DB00A5D4D4 /* SwiftUI.framework */; };
+		00A91C0A2E8816DC00A5D4D4 /* GithubContributionWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 00A91BF62E8816DB00A5D4D4 /* GithubContributionWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00A91C082E8816DC00A5D4D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00A91BDC2E88169E00A5D4D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00A91BF52E8816DB00A5D4D4;
+			remoteInfo = GithubContributionWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		00A91C0F2E8816DC00A5D4D4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				00A91C0A2E8816DC00A5D4D4 /* GithubContributionWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00A91BE42E88169E00A5D4D4 /* GithubContributionWidgetMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubContributionWidgetMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A91BF62E8816DB00A5D4D4 /* GithubContributionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GithubContributionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		00A91BF82E8816DB00A5D4D4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		00A91BFA2E8816DB00A5D4D4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		00A91C0B2E8816DC00A5D4D4 /* Exceptions for "GithubContributionWidget" folder in "GithubContributionWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 00A91BF52E8816DB00A5D4D4 /* GithubContributionWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		00A91BE62E88169E00A5D4D4 /* GithubContributionWidgetMacOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GithubContributionWidgetMacOS;
+			sourceTree = "<group>";
+		};
+		00A91BFC2E8816DB00A5D4D4 /* GithubContributionWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				00A91C0B2E8816DC00A5D4D4 /* Exceptions for "GithubContributionWidget" folder in "GithubContributionWidgetExtension" target */,
+			);
+			path = GithubContributionWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +77,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		00A91BF32E8816DB00A5D4D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A91BFB2E8816DB00A5D4D4 /* SwiftUI.framework in Frameworks */,
+				00A91BF92E8816DB00A5D4D4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				00A91BE62E88169E00A5D4D4 /* GithubContributionWidgetMacOS */,
+				00A91BFC2E8816DB00A5D4D4 /* GithubContributionWidget */,
+				00A91BF72E8816DB00A5D4D4 /* Frameworks */,
 				00A91BE52E88169E00A5D4D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +103,18 @@
 			isa = PBXGroup;
 			children = (
 				00A91BE42E88169E00A5D4D4 /* GithubContributionWidgetMacOS.app */,
+				00A91BF62E8816DB00A5D4D4 /* GithubContributionWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		00A91BF72E8816DB00A5D4D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00A91BF82E8816DB00A5D4D4 /* WidgetKit.framework */,
+				00A91BFA2E8816DB00A5D4D4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +127,12 @@
 				00A91BE02E88169E00A5D4D4 /* Sources */,
 				00A91BE12E88169E00A5D4D4 /* Frameworks */,
 				00A91BE22E88169E00A5D4D4 /* Resources */,
+				00A91C0F2E8816DC00A5D4D4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				00A91C092E8816DC00A5D4D4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				00A91BE62E88169E00A5D4D4 /* GithubContributionWidgetMacOS */,
@@ -69,6 +143,28 @@
 			productName = GithubContributionWidgetMacOS;
 			productReference = 00A91BE42E88169E00A5D4D4 /* GithubContributionWidgetMacOS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		00A91BF52E8816DB00A5D4D4 /* GithubContributionWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00A91C0C2E8816DC00A5D4D4 /* Build configuration list for PBXNativeTarget "GithubContributionWidgetExtension" */;
+			buildPhases = (
+				00A91BF22E8816DB00A5D4D4 /* Sources */,
+				00A91BF32E8816DB00A5D4D4 /* Frameworks */,
+				00A91BF42E8816DB00A5D4D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				00A91BFC2E8816DB00A5D4D4 /* GithubContributionWidget */,
+			);
+			name = GithubContributionWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = GithubContributionWidgetExtension;
+			productReference = 00A91BF62E8816DB00A5D4D4 /* GithubContributionWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +177,9 @@
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					00A91BE32E88169E00A5D4D4 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					00A91BF52E8816DB00A5D4D4 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
@@ -100,12 +199,20 @@
 			projectRoot = "";
 			targets = (
 				00A91BE32E88169E00A5D4D4 /* GithubContributionWidgetMacOS */,
+				00A91BF52E8816DB00A5D4D4 /* GithubContributionWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00A91BE22E88169E00A5D4D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00A91BF42E8816DB00A5D4D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +229,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		00A91BF22E8816DB00A5D4D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00A91C092E8816DC00A5D4D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00A91BF52E8816DB00A5D4D4 /* GithubContributionWidgetExtension */;
+			targetProxy = 00A91C082E8816DC00A5D4D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		00A91BED2E88169E00A5D4D4 /* Debug */ = {
@@ -303,6 +425,86 @@
 			};
 			name = Release;
 		};
+		00A91C0D2E8816DC00A5D4D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GithubContributionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GithubContributionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GithubContributionWidgetMacOS.GithubContributionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		00A91C0E2E8816DC00A5D4D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GithubContributionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GithubContributionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GithubContributionWidgetMacOS.GithubContributionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -320,6 +522,15 @@
 			buildConfigurations = (
 				00A91BF02E88169E00A5D4D4 /* Debug */,
 				00A91BF12E88169E00A5D4D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00A91C0C2E8816DC00A5D4D4 /* Build configuration list for PBXNativeTarget "GithubContributionWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00A91C0D2E8816DC00A5D4D4 /* Debug */,
+				00A91C0E2E8816DC00A5D4D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
