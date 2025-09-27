@@ -5,46 +5,67 @@
 //  Created by Sekul on 27.09.2025.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(),
-                    configuration: ConfigurationAppIntent(),
-                    contributions: [])
+        SimpleEntry(
+            date: Date(),
+            configuration: ConfigurationAppIntent(),
+            contributions: []
+        )
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(),
-                    configuration: configuration,
-                    contributions: [])
+    func snapshot(
+        for configuration: ConfigurationAppIntent,
+        in context: Context
+    ) async -> SimpleEntry {
+        SimpleEntry(
+            date: Date(),
+            configuration: configuration,
+            contributions: []
+        )
     }
 
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+    func timeline(
+        for configuration: ConfigurationAppIntent,
+        in context: Context
+    ) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
         let currentDate = Date()
 
         let username = configuration.username
         let token = configuration.token.isEmpty ? nil : configuration.token
-        
+
         var minutes = 5
 
         do {
-            let contributions = try await GitHubAPI.fetchContributions(username: username, token: token)
-            let entry = SimpleEntry(date: currentDate,
-                                    configuration: configuration,
-                                    contributions: contributions)
+            let contributions = try await GitHubAPI.fetchContributions(
+                username: username,
+                token: token
+            )
+            let entry = SimpleEntry(
+                date: currentDate,
+                configuration: configuration,
+                contributions: contributions
+            )
             entries.append(entry)
             minutes = 30
         } catch {
-            let entry = SimpleEntry(date: currentDate,
-                                    configuration: configuration,
-                                    contributions: [])
+            let entry = SimpleEntry(
+                date: currentDate,
+                configuration: configuration,
+                contributions: []
+            )
             entries.append(entry)
         }
-        
-        let refreshDate = Calendar.current.date(byAdding: .minute, value: minutes, to: currentDate)!
+
+        let refreshDate = Calendar.current.date(
+            byAdding: .minute,
+            value: minutes,
+            to: currentDate
+        )!
 
         return Timeline(entries: entries, policy: .after(refreshDate))
     }
@@ -59,7 +80,7 @@ struct SimpleEntry: TimelineEntry {
 struct GithubContributionWidgetEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
-    
+
     var body: some View {
         if entry.contributions.isEmpty {
             ZStack {
@@ -80,9 +101,11 @@ struct GithubContributionWidget: Widget {
     let kind: String = "GithubContributionWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind,
-                               intent: ConfigurationAppIntent.self,
-                               provider: Provider()) { entry in
+        AppIntentConfiguration(
+            kind: kind,
+            intent: ConfigurationAppIntent.self,
+            provider: Provider()
+        ) { entry in
             GithubContributionWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("GitHub Activity")

@@ -10,7 +10,8 @@ import SwiftUI
 import WidgetKit
 
 struct GithubContributionWidgetControl: ControlWidget {
-    static let kind: String = "com.example.GithubContributionWidgetMacOS.GithubContributionWidget"
+    static let kind: String =
+        "com.example.GithubContributionWidgetMacOS.GithubContributionWidget"
 
     var body: some ControlWidgetConfiguration {
         AppIntentControlConfiguration(
@@ -38,12 +39,20 @@ extension GithubContributionWidgetControl {
 
     struct Provider: AppIntentControlValueProvider {
         func previewValue(configuration: TimerConfiguration) -> Value {
-            GithubContributionWidgetControl.Value(isRunning: false, name: configuration.timerName)
+            GithubContributionWidgetControl.Value(
+                isRunning: false,
+                name: configuration.timerName
+            )
         }
 
-        func currentValue(configuration: TimerConfiguration) async throws -> Value {
-            let isRunning = true // Check if the timer is running
-            return GithubContributionWidgetControl.Value(isRunning: isRunning, name: configuration.timerName)
+        func currentValue(configuration: TimerConfiguration) async throws
+            -> Value
+        {
+            let isRunning = true  // Check if the timer is running
+            return GithubContributionWidgetControl.Value(
+                isRunning: isRunning,
+                name: configuration.timerName
+            )
         }
     }
 }

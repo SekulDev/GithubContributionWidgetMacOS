@@ -5,9 +5,9 @@
 //  Created by Sekul on 27.09.2025.
 //
 
-import WidgetKit
 import AppIntents
 import Foundation
+import WidgetKit
 
 struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"

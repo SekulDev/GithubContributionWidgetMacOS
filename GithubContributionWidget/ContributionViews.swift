@@ -11,7 +11,7 @@ import WidgetKit
 struct ContributionCell: View {
     let contribution: ContributionDay
     let size: CGFloat
-    
+
     var body: some View {
         RoundedRectangle(cornerRadius: size * 0.2)
             .fill(contribution.intensity.color)
@@ -22,30 +22,32 @@ struct ContributionCell: View {
 struct ContributionGrid: View {
     let contributions: [ContributionDay]
     let family: WidgetFamily
-    
+
     private var spacing: CGFloat { 3.0 }
-    
+
     var body: some View {
         GeometryReader { geometry in
             let verticalPadding = geometry.size.height * 0.08
             let horizontalPadding = verticalPadding
-            
+
             let availableHeight = geometry.size.height - (verticalPadding * 2)
             let availableWidth = geometry.size.width - (horizontalPadding * 2)
-            
+
             let totalSpacing = spacing * 6
             let cellSize = (availableHeight - totalSpacing) / 7
             let weekWidth = cellSize + spacing
             let maxWeeks = Int(availableWidth / weekWidth)
             let weeksToShow = min(maxWeeks, 52)
-            
+
             let totalDays = weeksToShow * 7
             let contributionsToShow = Array(contributions.suffix(totalDays))
             let weeksArray = weeks(from: contributionsToShow)
-            
-            let actualGridWidth = CGFloat(weeksArray.count) * cellSize +
-                                  CGFloat(weeksArray.count - 1) * spacing
-            
+
+            let actualGridWidth =
+                CGFloat(weeksArray.count) * cellSize + CGFloat(
+                    weeksArray.count - 1
+                ) * spacing
+
             HStack(spacing: spacing) {
                 ForEach(weeksArray.indices, id: \.self) { weekIndex in
                     VStack(spacing: spacing) {
@@ -59,36 +61,44 @@ struct ContributionGrid: View {
                 }
             }
             .frame(width: actualGridWidth, height: availableHeight)
-            .frame(width: geometry.size.width,
-                   height: geometry.size.height,
-                   alignment: .center)
+            .frame(
+                width: geometry.size.width,
+                height: geometry.size.height,
+                alignment: .center
+            )
         }
     }
-    
-    private func weeks(from contributions: [ContributionDay]) -> [[ContributionDay]] {
+
+    private func weeks(from contributions: [ContributionDay])
+        -> [[ContributionDay]]
+    {
         let calendar = Calendar.current
         var weeks: [[ContributionDay]] = []
         var currentWeek: [ContributionDay] = []
-        
+
         for contribution in contributions {
             let weekday = calendar.component(.weekday, from: contribution.date)
             if weekday == 1 && !currentWeek.isEmpty {
                 while currentWeek.count < 7 {
-                    currentWeek.append(ContributionDay(date: Date(), contributionCount: nil))
+                    currentWeek.append(
+                        ContributionDay(date: Date(), contributionCount: nil)
+                    )
                 }
                 weeks.append(currentWeek)
                 currentWeek = []
             }
             currentWeek.append(contribution)
         }
-        
+
         if !currentWeek.isEmpty {
             while currentWeek.count < 7 {
-                currentWeek.append(ContributionDay(date: Date(), contributionCount: nil))
+                currentWeek.append(
+                    ContributionDay(date: Date(), contributionCount: nil)
+                )
             }
             weeks.append(currentWeek)
         }
-        
+
         return weeks
     }
 }
