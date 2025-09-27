@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct GithubContributionWidgetMacOSApp: App {
-    
+
+    @Environment(\.openURL) var openURL
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onOpenURL { url in
+                if let url = URL(string: url.absoluteString) {
+                    NSWorkspace.shared.open(url)
+                }
+            }
         }
     }
 }

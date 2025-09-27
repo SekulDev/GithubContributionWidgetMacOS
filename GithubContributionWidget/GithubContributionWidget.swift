@@ -92,7 +92,12 @@ struct GithubContributionWidgetEntryView: View {
             .containerBackground(.black, for: .widget)
         } else {
             ContributionGrid(contributions: entry.contributions, family: family)
-                .containerBackground(.black, for: .widget)
+                .containerBackground(.black, for: .widget).widgetURL(
+                    URL(
+                        string:
+                            "https://github.com/\(entry.configuration.username)"
+                    )!
+                )
         }
     }
 }
