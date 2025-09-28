@@ -12,6 +12,5 @@ import WidgetKit
 struct GithubContributionWidgetBundle: WidgetBundle {
     var body: some Widget {
         GithubContributionWidget()
-        GithubContributionWidgetControl()
     }
 }
