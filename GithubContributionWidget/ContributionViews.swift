@@ -39,8 +39,14 @@ struct ContributionGrid: View {
             let maxWeeks = Int(availableWidth / weekWidth)
             let weeksToShow = min(maxWeeks, 52)
 
-            let totalDays = weeksToShow * 7
-            let contributionsToShow = Array(contributions.suffix(totalDays))
+            let calendar = Calendar.current
+            let today = contributions.last?.date ?? Date()
+            let weekday = calendar.component(.weekday, from: today)
+            let totalDaysNeeded = (weeksToShow * 7) + weekday
+
+            let contributionsToShow = Array(
+                contributions.suffix(totalDaysNeeded)
+            )
             let weeksArray = weeks(from: contributionsToShow)
 
             let actualGridWidth =
@@ -72,32 +78,25 @@ struct ContributionGrid: View {
     private func weeks(from contributions: [ContributionDay])
         -> [[ContributionDay]]
     {
-        let calendar = Calendar.current
+        guard !contributions.isEmpty else { return [] }
+
         var weeks: [[ContributionDay]] = []
         var currentWeek: [ContributionDay] = []
 
-        for contribution in contributions {
-            let weekday = calendar.component(.weekday, from: contribution.date)
-            if weekday == 1 && !currentWeek.isEmpty {
-                while currentWeek.count < 7 {
-                    currentWeek.append(
-                        ContributionDay(date: Date(), contributionCount: nil)
-                    )
-                }
+        for day in contributions {
+            currentWeek.append(day)
+            if currentWeek.count == 7 {
                 weeks.append(currentWeek)
                 currentWeek = []
             }
-            currentWeek.append(contribution)
         }
 
-        if !currentWeek.isEmpty {
-            while currentWeek.count < 7 {
-                currentWeek.append(
-                    ContributionDay(date: Date(), contributionCount: nil)
-                )
-            }
-            weeks.append(currentWeek)
+        while currentWeek.count < 7 {
+            currentWeek.append(
+                ContributionDay(date: Date(), contributionCount: nil)
+            )
         }
+        weeks.append(currentWeek)
 
         return weeks
     }
