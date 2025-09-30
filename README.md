@@ -2,6 +2,8 @@
 
 A simple macOS widget that displays your GitHub contribution graph directly on your desktop.
 
+<img src="image.png" alt="Github Contribution Widget"/>
+
 ## About This Project
 
 This app was created in a "one-time vibe" coding session. I had never worked with Swift or macOS development before, but I wanted to see my GitHub contributions as a desktop widget - so I just built it. It's nothing fancy, just a straightforward contribution graph on your desktop.
