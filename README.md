@@ -10,6 +10,8 @@ This app was created in a "one-time vibe" coding session. I had never worked wit
 
 If you have suggestions, improvements, or bug fixes, feel free to open a pull request!
 
+**Don't forget to leave a star! ⭐️**
+
 ## Requirements
 
 - macOS 11.0 (Big Sur) or later
