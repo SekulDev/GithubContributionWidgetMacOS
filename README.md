@@ -28,7 +28,7 @@ xcode-select --install
 
 ```bash
 git clone https://github.com/SekulDev/GithubContributionWidgetMacOS.git
-cd github-contribution-widget-macos
+cd GithubContributionWidgetMacOS
 ```
 
 ### 3. Build and Install
