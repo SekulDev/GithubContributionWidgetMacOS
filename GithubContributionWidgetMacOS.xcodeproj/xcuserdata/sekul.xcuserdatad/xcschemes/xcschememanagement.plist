@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>GithubContributionWidgetMacOS.xcscheme_^#shared#^_</key>
+		<key>GithubContributionWidgetMacOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
