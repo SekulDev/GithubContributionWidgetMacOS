@@ -22,17 +22,17 @@ struct ContentView: View {
                                 endPoint: .bottomTrailing
                             )
                         )
-                    
+
                     Text("GitHub Contribution Widget")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                    
+
                     Text("Setup Guide for macOS")
                         .font(.title3)
                         .foregroundStyle(.secondary)
                 }
                 .padding(.top, 40)
-                
+
                 // Steps
                 VStack(alignment: .leading, spacing: 25) {
                     // Step 1
@@ -48,10 +48,10 @@ struct ContentView: View {
                             "Select 'Classic' token type",
                             "Choose 'No expiration' for duration",
                             "Check 'user:read' permission",
-                            "Click 'Generate token' and copy it securely"
+                            "Click 'Generate token' and copy it securely",
                         ]
                     )
-                    
+
                     // Step 2
                     StepCard(
                         number: 2,
@@ -62,10 +62,10 @@ struct ContentView: View {
                             "Right-click on your desktop",
                             "Select 'Edit Widgets' from the menu",
                             "Find 'GithubContributionWidgetMacOS' in the list",
-                            "Drag your preferred widget size to the desktop"
+                            "Drag your preferred widget size to the desktop",
                         ]
                     )
-                    
+
                     // Step 3
                     StepCard(
                         number: 3,
@@ -76,11 +76,11 @@ struct ContentView: View {
                             "Right-click on the newly added widget",
                             "Enter your GitHub username",
                             "Paste the personal access token you generated",
-                            "Click 'Done' to save your settings"
+                            "Click 'Done' to save your settings",
                         ]
                     )
                 }
-                
+
                 // Footer
                 HStack(spacing: 8) {
                     Image(systemName: "checkmark.circle.fill")
@@ -110,7 +110,7 @@ struct StepCard: View {
     let color: Color
     var link: String? = nil
     let substeps: [String]
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // Header
@@ -119,25 +119,25 @@ struct StepCard: View {
                     Circle()
                         .fill(color.gradient)
                         .frame(width: 50, height: 50)
-                    
+
                     Image(systemName: icon)
                         .font(.title2)
                         .foregroundStyle(.white)
                 }
-                
+
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Step \(number)")
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundStyle(.secondary)
-                    
+
                     Text(title)
                         .font(.title3)
                         .fontWeight(.semibold)
                 }
-                
+
                 Spacer()
-                
+
                 if let link = link {
                     Link(destination: URL(string: link)!) {
                         HStack(spacing: 6) {
@@ -155,27 +155,29 @@ struct StepCard: View {
                     .buttonStyle(.plain)
                 }
             }
-            
+
             // Substeps
             VStack(alignment: .leading, spacing: 12) {
-                ForEach(Array(substeps.enumerated()), id: \.offset) { index, substep in
+                ForEach(Array(substeps.enumerated()), id: \.offset) {
+                    index,
+                    substep in
                     HStack(alignment: .top, spacing: 12) {
                         ZStack {
                             Circle()
                                 .fill(color.opacity(0.2))
                                 .frame(width: 24, height: 24)
-                            
+
                             Text("\(index + 1)")
                                 .font(.caption)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(color)
                         }
-                        
+
                         Text(substep)
                             .font(.body)
                             .foregroundStyle(.primary)
                             .fixedSize(horizontal: false, vertical: true)
-                        
+
                         Spacer()
                     }
                 }
