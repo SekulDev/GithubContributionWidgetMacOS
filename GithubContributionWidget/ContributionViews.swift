@@ -91,12 +91,15 @@ struct ContributionGrid: View {
             }
         }
 
-        while currentWeek.count < 7 {
-            currentWeek.append(
-                ContributionDay(date: Date(), contributionCount: nil)
-            )
+        if !currentWeek.isEmpty {
+            
+            while currentWeek.count < 7 {
+                currentWeek.append(
+                    ContributionDay(date: Date(), contributionCount: nil)
+                )
+            }
+            weeks.append(currentWeek)
         }
-        weeks.append(currentWeek)
 
         return weeks
     }
